@@ -1,11 +1,9 @@
-package com.lynas.graphql;
+package com.lynas;
 
-import com.lynas.graphql.dao.AuthorDao;
-import com.lynas.graphql.dao.PostDao;
-import com.lynas.graphql.model.Author;
-import com.lynas.graphql.model.Post;
-import com.lynas.graphql.service.AuthorService;
-import com.lynas.graphql.service.PostService;
+import com.lynas.model.Author;
+import com.lynas.model.Post;
+import com.lynas.service.AuthorService;
+import com.lynas.service.PostService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +15,7 @@ import java.util.UUID;
 
 @EnableTransactionManagement
 @SpringBootApplication
-public class GraphqlDemo2Application {
+public class Application {
     @Bean
     CommandLineRunner commandLineRunner(PostService postService, AuthorService authorService) {
         return args -> {
@@ -46,7 +44,7 @@ public class GraphqlDemo2Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(GraphqlDemo2Application.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

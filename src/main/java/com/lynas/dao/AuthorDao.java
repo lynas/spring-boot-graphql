@@ -1,6 +1,6 @@
-package com.lynas.graphql.dao;
+package com.lynas.dao;
 
-import com.lynas.graphql.model.Author;
+import com.lynas.model.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface  AuthorDao extends JpaRepository<Author,String> {

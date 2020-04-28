@@ -1,7 +1,7 @@
-package com.lynas.graphql.service;
+package com.lynas.service;
 
-import com.lynas.graphql.dao.PostDao;
-import com.lynas.graphql.model.Post;
+import com.lynas.dao.PostDao;
+import com.lynas.model.Post;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

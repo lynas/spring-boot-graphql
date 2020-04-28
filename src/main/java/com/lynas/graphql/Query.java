@@ -1,11 +1,11 @@
 package com.lynas.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.lynas.graphql.dao.AuthorDao;
-import com.lynas.graphql.dao.PostDao;
-import com.lynas.graphql.model.Author;
-import com.lynas.graphql.model.Post;
-import com.lynas.graphql.service.AuthorService;
+import com.lynas.dao.AuthorDao;
+import com.lynas.dao.PostDao;
+import com.lynas.model.Author;
+import com.lynas.model.Post;
+import com.lynas.service.AuthorService;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,25 +1,22 @@
-package com.lynas.graphql.service;
+package com.lynas.service;
 
-import com.lynas.graphql.dao.AuthorDao;
-import com.lynas.graphql.dao.PostDao;
-import com.lynas.graphql.model.Author;
-import com.lynas.graphql.model.Post;
+import com.lynas.dao.AuthorDao;
+import com.lynas.model.Author;
 import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
 public class AuthorService {
 
     private final AuthorDao authorDao;
-    private final PostDao postDao;
 
-    public AuthorService(AuthorDao authorDao, PostDao postDao) {
+    public AuthorService(AuthorDao authorDao) {
         this.authorDao = authorDao;
-        this.postDao = postDao;
     }
 
     public List<Author> getAuthors() {
@@ -35,9 +32,12 @@ public class AuthorService {
     }
 
     public Author getAuthor(String id) {
-        Author author = authorDao.findById(id).get();
-        Hibernate.initialize(author.getPosts());
-        return author;
+        Optional<Author> author = authorDao.findById(id);
+        if (author.isPresent()) {
+            Hibernate.initialize(author.get().getPosts());
+            return author.get();
+        }
+        return null;
     }
 
 }

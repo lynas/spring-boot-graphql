@@ -1,24 +1,17 @@
-package com.lynas.graphql.model;
+package com.lynas.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Author {
     @Id
     private String id;
     private String name;
     private String thumbnail;
-    @OneToMany(cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @OneToMany
     private List<Post> posts;
 
     public Author() {
@@ -72,4 +65,5 @@ public class Author {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
+
 }
