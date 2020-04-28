@@ -17,7 +17,7 @@ public class PostResolver implements GraphQLResolver<Post> {
     }
 
     public Author getAuthor(Post post) {
-        Optional<Author> byId = authorDao.findById(post.getAuthorId());
-        return byId.get();
+        Optional<Author> author = authorDao.findById(post.getAuthorId());
+        return author.orElse(null);
     }
 }
