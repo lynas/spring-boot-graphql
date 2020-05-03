@@ -1,11 +1,3 @@
 spring:
   jpa:
     show-sql: true
-
-hibernate:
-  cache:
-    use_second_level_cache: true
-    use_query_cache: true
-    region:
-      factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
-#TODO figure out more hibernate level 2 cache
