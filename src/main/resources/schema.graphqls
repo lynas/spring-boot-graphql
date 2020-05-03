@@ -3,6 +3,7 @@ type Post {
     title: String!
     text: String!
     category: String
+    author: Author
 }
 
 type Author {
