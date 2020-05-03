@@ -29,6 +29,10 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+
+
+    // dev only
+    implementation('com.graphql-java:graphiql-spring-boot-starter:5.0.2')
 }
 
 test {

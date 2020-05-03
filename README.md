@@ -16,3 +16,6 @@ query{
     }
 }
 ```
+
+- Explore API with GraphiQL api browser at following url
+- URL : http://localhost:8080/graphiql
