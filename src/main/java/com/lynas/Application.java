@@ -28,13 +28,13 @@ public class Application {
             Post post5 = new Post(UUID.randomUUID().toString(), "t5", "txt5", "c5", author2id);
             postService.saveAllPost(Arrays.asList(post1, post2, post3, post4, post5));
 
-            Author author1 = new Author(author1id, "n1", "t1", Arrays.asList(post1, post2));
-            Author author2 = new Author(author2id, "n2", "t2", Arrays.asList(post3, post4, post5));
+            Author author1 = new Author(author1id, "n1", "t1");
+            Author author2 = new Author(author2id, "n2", "t2");
 
             authorService.saveAllAuthors(Arrays.asList(author1, author2));
 
             System.out.println("\n\n ===Printing===\n\n");
-            postService.getRecentPosts(1,1).forEach(System.out::println);
+            postService.getRecentPosts(1, 1).forEach(System.out::println);
             System.out.println("\n\n ===Printing===\n\n");
             authorService.getAuthors().forEach(System.out::println);
             System.out.println("\n\n ===Printing===\n\n");

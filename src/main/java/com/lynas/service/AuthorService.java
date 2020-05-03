@@ -2,12 +2,10 @@ package com.lynas.service;
 
 import com.lynas.dao.AuthorDao;
 import com.lynas.model.Author;
-import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -20,11 +18,7 @@ public class AuthorService {
     }
 
     public List<Author> getAuthors() {
-        List<Author> authorList = authorDao.findAll();
-        authorList.forEach(author -> {
-            Hibernate.initialize(author.getPosts());
-        });
-        return authorList;
+        return authorDao.findAll();
     }
 
     public void saveAllAuthors(Iterable<Author> entities) {
@@ -32,12 +26,7 @@ public class AuthorService {
     }
 
     public Author getAuthor(String id) {
-        Optional<Author> author = authorDao.findById(id);
-        if (author.isPresent()) {
-            Hibernate.initialize(author.get().getPosts());
-            return author.get();
-        }
-        return null;
+        return authorDao.findById(id).orElse(null);
     }
 
 }

@@ -3,14 +3,13 @@ type Post {
     title: String!
     text: String!
     category: String
-    author: Author!
 }
 
 type Author {
     id: ID!
     name: String!
     thumbnail: String
-    posts: [Post]!
+    posts: [Post]
 }
 
 # The Root Query for the application
