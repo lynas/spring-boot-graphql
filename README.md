@@ -1,5 +1,18 @@
-# spring-boot-graphql
+### Postman graphql query
 
-### learn more hibernate l2 cache
+- authors
+- url : http://localhost:8080/graphql
+- method : POST
+- body
 
-- https://vladmihalcea.com/initialize-lazy-proxies-collections-jpa-hibernate/
+```
+query{
+    authors {
+        id
+        posts {
+            id
+            title
+        }
+    }
+}
+```
