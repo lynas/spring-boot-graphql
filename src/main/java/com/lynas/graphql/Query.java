@@ -1,8 +1,8 @@
 package com.lynas.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.lynas.dao.AuthorDao;
-import com.lynas.dao.PostDao;
+import com.lynas.dao.AuthorRepository;
+import com.lynas.dao.PostRepository;
 import com.lynas.model.Author;
 import com.lynas.model.Post;
 import com.lynas.service.AuthorService;
@@ -12,16 +12,16 @@ import java.util.List;
 
 @Component
 public class Query implements GraphQLQueryResolver {
-    private final PostDao postDao;
+    private final PostRepository postRepository;
     private final AuthorService authorService;
 
-    public Query(PostDao postDao, AuthorDao authorDao, AuthorService authorService) {
-        this.postDao = postDao;
+    public Query(PostRepository postRepository, AuthorRepository authorRepository, AuthorService authorService) {
+        this.postRepository = postRepository;
         this.authorService = authorService;
     }
 
     public List<Post> getRecentPosts(int count, int offset) {
-        return postDao.findAll();
+        return postRepository.findAll();
     }
 
     public List<Author> getAuthors() {
